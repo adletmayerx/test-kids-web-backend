@@ -22,6 +22,8 @@ const ALLOWED_CORS = [
   "https://main--elaborate-panda-2f84fd.netlify.app",
   "http://main--elaborate-panda-2f84fd.netlify.app/",
   "http://main--elaborate-panda-2f84fd.netlify.app",
+  "http://netlify.app",
+  "https://netlify.app",
 ];
 
 export default cors({
