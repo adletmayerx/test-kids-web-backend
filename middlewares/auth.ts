@@ -24,8 +24,8 @@ export default (req: Request, res: Response, next: NextFunction) => {
     req.user = payload;
 
     next();
-  } catch (err) {
+  } catch (err: any) {
     console.log(err);
-    throw new NotAuthError("Авторизуйтесь, пожалуйста");
+    throw new NotAuthError(err.message);
   }
 };
