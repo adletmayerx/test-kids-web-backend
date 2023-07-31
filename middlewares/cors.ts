@@ -7,7 +7,9 @@ const ALLOWED_CORS = [
   "http://127.0.0.1:5173",
   "https://127.0.0.1:5173",
   "https://adletmayerx.github.io/test-kids-web/",
+  "https://adletmayerx.github.io/test-kids-web",
   "http://adletmayerx.github.io/test-kids-web/",
+  "http://adletmayerx.github.io/test-kids-web",
 ];
 
 export default cors({
