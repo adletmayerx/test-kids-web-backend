@@ -8,7 +8,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
   const { NODE_ENV, JWT_SECRET } = process.env;
 
   if (!token) {
-    throw new NotAuthError("Кука Авторизуйтесь, пожалуйста");
+    throw new NotAuthError(`Кука Авторизуйтесь, пожалуйста ${JSON.stringify(req.cookies)}` );
   }
 
   let payload;
