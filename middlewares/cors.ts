@@ -12,6 +12,9 @@ const ALLOWED_CORS = [
   "http://adletmayerx.github.io/test-kids-web",
   "https://adletmayerx.github.io",
   "http://adletmayerx.github.io",
+  "http://github.io",
+  "https://github.io",
+  "github.io",
 ];
 
 export default cors({
