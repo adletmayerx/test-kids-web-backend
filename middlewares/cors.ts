@@ -15,6 +15,9 @@ const ALLOWED_CORS = [
   "http://github.io",
   "https://github.io",
   "github.io",
+  "https://pages.github.com",
+  "https://pages.github.com/",
+  "https://pages.github.com/?(null)",
 ];
 
 export default cors({
