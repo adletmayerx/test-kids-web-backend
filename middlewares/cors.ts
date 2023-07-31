@@ -1,7 +1,14 @@
 import cors from "cors";
 
 const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
-const ALLOWED_CORS = ["http://localhost:3000", "https://localhost:3000", "http://127.0.0.1:5173", "https://127.0.0.1:5173"];
+const ALLOWED_CORS = [
+  "http://localhost:3000",
+  "https://localhost:3000",
+  "http://127.0.0.1:5173",
+  "https://127.0.0.1:5173",
+  "https://adletmayerx.github.io/test-kids-web/",
+  "http://adletmayerx.github.io/test-kids-web/",
+];
 
 export default cors({
   credentials: true,
