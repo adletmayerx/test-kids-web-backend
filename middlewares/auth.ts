@@ -3,22 +3,21 @@ import NotAuthError from "../errors/NotAuthError";
 import { Request, Response, NextFunction } from "express";
 
 export default (req: Request, res: Response, next: NextFunction) => {
-  const token = req.cookies.jwt;
+  const { authorization } = req.headers;
+  console.log(authorization);
 
-  const { NODE_ENV, JWT_SECRET } = process.env;
-
-  if (!token) {
-    throw new NotAuthError(`Кука Авторизуйтесь, пожалуйста ${JSON.stringify(req.cookies)}` );
+  if (!authorization || !authorization.startsWith("Bearer ")) {
+    return res.status(401).send({ message: "Необходима авторизация" });
   }
+
+  const token = authorization.replace("Bearer ", "");
+
+  console.log(token);
 
   let payload;
 
   try {
-    console.log(token)
-    payload = jwt.verify(
-      token,
-      NODE_ENV === "production" ? JWT_SECRET ?? "super-strong-secret" : "super-strong-secret"
-    );
+    payload = jwt.verify(token, "super-strong-secret");
 
     //@ts-ignore
     req.user = payload;

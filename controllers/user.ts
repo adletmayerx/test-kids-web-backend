@@ -27,7 +27,7 @@ export const updateFeedback = (req: Request, res: Response, next: NextFunction) 
   const { feedback } = req.body;
 
   User.findByIdAndUpdate(
-  //@ts-ignore
+    //@ts-ignore
     req.user._id,
     { feedback },
     {
@@ -105,14 +105,7 @@ export const login = (req: Request, res: Response, next: NextFunction) => {
         }
       );
 
-      res
-        .cookie("jwt", token, {
-          httpOnly: true,
-          maxAge: 3600000 * 24 * 7,
-          sameSite: "none",
-          secure: true,
-        })
-        .send({ message: "Логин успешный" });
+      res.send({ message: "Логин успешный", token });
     })
     .catch(next);
 };
@@ -127,10 +120,12 @@ export const getUserInfo = (req: Request, res: Response, next: NextFunction) => 
 };
 
 export const signOut = (req: Request, res: Response) => {
-  res .cookie("jwt", 0, {
-    httpOnly: true,
-    maxAge: 0,
-    sameSite: "none",
-    secure: true,
-  }).send({ message: "cookies deleted" });
+  res
+    .cookie("jwt", 0, {
+      httpOnly: true,
+      maxAge: 0,
+      sameSite: "none",
+      secure: true,
+    })
+    .send({ message: "cookies deleted" });
 };
