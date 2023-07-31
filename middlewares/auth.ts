@@ -14,6 +14,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
   let payload;
 
   try {
+    console.log(token)
     payload = jwt.verify(
       token,
       NODE_ENV === "production" ? JWT_SECRET ?? "super-strong-secret" : "super-strong-secret"
@@ -24,6 +25,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
 
     next();
   } catch (err) {
+    console.log(err);
     throw new NotAuthError("Авторизуйтесь, пожалуйста");
   }
 };

@@ -127,8 +127,10 @@ export const getUserInfo = (req: Request, res: Response, next: NextFunction) => 
 };
 
 export const signOut = (req: Request, res: Response) => {
-  res.cookie("jwt", { httpOnly: true,
+  res .cookie("jwt", 0, {
+    httpOnly: true,
     maxAge: 0,
     sameSite: "none",
-    secure: true, }).send({ message: "cookies deleted" });
+    secure: true,
+  }).send({ message: "cookies deleted" });
 };
