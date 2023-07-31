@@ -18,6 +18,8 @@ const ALLOWED_CORS = [
   "https://pages.github.com",
   "https://pages.github.com/",
   "https://pages.github.com/?(null)",
+  "https://main--elaborate-panda-2f84fd.netlify.app/",
+  "http://main--elaborate-panda-2f84fd.netlify.app/"
 ];
 
 export default cors({
